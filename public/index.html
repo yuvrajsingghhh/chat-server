@@ -2,18 +2,26 @@
 <html>
 <head>
   <title>Chat App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="chat-container">
+        
 
-<div class="chat-box">
-  <div id="messages"></div>
+        <div id="messages" class="messages-area">
+            </div>
 
-  <input id="msg" placeholder="Type message..." />
-  <button onclick="sendMsg()">Send</button>
-</div>
+        <div class="input-area">
+            <div class="input-wrapper">
+                <input type="text" id="msg" placeholder="Message..." autocomplete="off">
+                <button onclick="sendMsg()" id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
 
-<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
-<script src="script.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
