@@ -1,159 +1,107 @@
-/* Reset */
+/* 1. Global Reset & Layout */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-               Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Page */
 body {
-  background-color: #fafafa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
 }
 
-
-/* Chat container */
+/* 2. Container - The main "window" */
 .chat-container {
   width: 100%;
-  height: 100vh;
   max-width: 500px;
-  background: #fff;
-  border: 1px solid #dbdbdb;
+  height: 90vh;
+  background: white;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-/* Header */
+/* 3. Header */
 .chat-header {
-  padding: 12px;
-  border-bottom: 1px solid #dbdbdb;
-  display: flex;
-  align-items: center;
+  background-color: #075e54;
+  color: white;
+  padding: 15px 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
-.avatar {
-  width: 36px;
-  height: 36px;
-  background: #eee;
-  border-radius: 50%;
-  margin-right: 10px;
-  border: 1px solid #ddd;
-}
-
-.name strong {
-  display: block;
-  font-size: 13px;
-}
-
-.name span {
-  font-size: 11px;
-  color: #8e8e8e;
-}
-
-/* Messages */
+/* 4. Message Area - This is the scrollable part */
 .messages-area {
-  flex: 1;
+  flex: 1; /* Grows to fill available space */
   overflow-y: auto;
-  padding: 12px;
+  padding: 20px;
+  background-color: #e5ddd5; /* Classic chat background */
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
-/* Message bubbles */
-.msg-bubble {
-  max-width: 70%;
-  padding: 8px 12px;
-  border-radius: 18px;
-  font-size: 14px;
-  line-height: 1.4;
-  word-wrap: break-word;
-}
-
-.msg-me {
-  align-self: flex-end;
-  background-color: #efefef;
-}
-
-.msg-friend {
-  align-self: flex-start;
-  border: 1px solid #efefef;
-}
-
-/* Input area */
+/* 5. Input Area - Sticky at the bottom */
 .input-area {
-  padding: 10px;
-  border-top: 1px solid #dbdbdb;
+  padding: 15px;
+  background: white;
+  border-top: 1px solid #eee;
 }
 
 .input-wrapper {
-  border: 1px solid #dbdbdb;
-  border-radius: 25px;
   display: flex;
-  padding: 5px 12px;
-  align-items: center;
+  gap: 10px;
 }
 
-input {
+input#msg {
   flex: 1;
-  border: none;
-  padding: 8px;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 25px; /* Rounded pill shape */
   outline: none;
-  font-size: 14px;
+  font-size: 1rem;
 }
 
-#send-btn {
-  background: none;
+input#msg:focus {
+  border-color: #075e54;
+}
+
+button#send-btn {
+  background-color: #075e54;
+  color: white;
   border: none;
-  color: #0095f6;
-  font-weight: 600;
+  padding: 0 20px;
+  border-radius: 25px;
   cursor: pointer;
-  margin-left: 8px;
+  font-weight: 600;
+  transition: background 0.2s;
 }
 
-#send-btn:active {
-  opacity: 0.5;
+button#send-btn:hover {
+  background-color: #128c7e;
 }
 
-/* ========================= */
-/* TABLET UI */
-/* ========================= */
-@media (min-width: 768px) {
-  .chat-container {
-    height: 90vh;
-    border-radius: 12px;
-  }
-
-  .messages-area {
-    padding: 20px;
-  }
-
-  .msg-bubble {
-    font-size: 16px;
-  }
-
-  input {
-    font-size: 16px;
-  }
+/* 6. Individual Message Bubbles (Assuming you'll add these via JS) */
+.message {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
-/* ========================= */
-/* DESKTOP UI */
-/* ========================= */
-@media (min-width: 1024px) {
-  .chat-container {
-    max-width: 600px;
-    height: 85vh;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  }
+.sent {
+  align-self: flex-end;
+  background-color: #dcf8c6;
+}
 
-  .msg-bubble {
-    font-size: 17px;
-  }
+.received {
+  align-self: flex-start;
+  background-color: white;
 }
