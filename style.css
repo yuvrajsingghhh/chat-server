@@ -12,6 +12,34 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+.messages-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  /* --- Background Image Code --- */
+  background-image: url('public/IMG_20250403_135715.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* This adds a slight tint so you can still see the text clearly */
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.1); 
+}
+
+/* Ensure messages stand out against the photo */
+.message {
+  background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+  padding: 10px 15px;
+  border-radius: 15px;
+  max-width: 80%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
 }
 
 /* 2. Container - The main "window" */
